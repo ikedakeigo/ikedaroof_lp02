@@ -1,0 +1,218 @@
+//マップ型変数breakpointsを定義
+$breakpoints: (
+//キー　　値
+'sm': 'screen and (max-width: 767px)', //767px以下（スマホ）用の表示
+'md': 'screen and (max-width: 768px)', //768px以上（タブレット・PC）用の表示
+'lg': 'screen and (min-width: 1018px)',
+) !default;
+
+// メディアクエリ用のmixinを定義。デフォ値はmd
+@mixin mq($breakpoint: sp) {
+//map-get(マップ型変数, キー)で値を取得
+  @media #{map-get($breakpoints, $breakpoint)} {
+    //この中をカスタムできる
+    @content;
+  }
+}
+
+
+
+.l-main{
+  & img{
+    width: 100%;
+  }
+}
+
+.p-mv{
+  img{
+    width: 100%;
+    height: auto;
+  }
+}
+
+/*===================================
+ * p-consultation
+===================================*/
+.p-consultation{
+  position: relative;
+}
+.c-cv{
+  &__inner{
+    width: 47.3958vw;
+    margin: 0 auto;
+    position: relative;
+  }
+  &__top {
+    padding-top: 0.5208333333vw;
+    padding-left: 4.375vw;
+    padding-bottom: 3vw;
+    &::before {
+      background: url(/img/check_top.svg) no-repeat left center/5.8854166667vw auto;
+    content: "";
+    display: block;
+    position: absolute;
+    height: 5.8854166667vw;
+    left: -2.34375vw;
+    top: -1.5625vw;
+    width: 5.8854166667vw;
+    }
+
+    &__title{
+      line-height: 30px;
+      p{
+        font-size: calc(112.5% + 0.25vw);
+        margin-bottom: 0.2604166667vw;
+      }
+      h3{
+        font-size: 3.75vw;
+        font-weight: 900;
+        position: relative;
+      }
+    }
+  }
+
+}
+
+.p-cv__button{
+  & .c-button{
+    @include mq(sm){
+      border: 0.2083333333vw solid #000;
+      box-shadow: 0 0.5208333333vw 0.8333333333vw 0 rgba(0, 0, 0, 0.32);
+      font-size: 1.9791vw;
+      height: 6.25vw;
+      width: 47.3958vw;
+    }
+    border: solid 0.1041666667vw #000;
+    align-items: center;
+    background: #fff url(/img/icon-arrow02.svg) no-repeat right 2.6041vw center/1.0937vw auto;
+    display: flex;
+    font-weight: 800;
+    justify-content: center;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    &:hover{
+      background: #000;
+      color: #fff;
+      background-image: url(/img/icon-arrow01.svg) no-repeat right 2.6041vw center/1.0937vw auto;
+    }
+  }
+}
+
+
+.video{
+  height: 600px;
+  & video{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+/*===================================
+ * p-scene
+===================================*/
+
+.p-scene{
+
+  &__inner{
+    background-color: #E3E3E3;
+    position: relative;
+
+    &::after{
+      content: "";
+      display: block;
+      background-image: url(/img/sankaku.png);
+      background-size: 100% auto;  /* Adjust the image to 100% width */
+      background-repeat: no-repeat;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 100px;  /* Set the actual height of your image */
+      width: 100%;
+      transform: translateY(99%);
+    }
+  }
+
+  &__text{
+    background-image: url(/img/scene_bg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding-top: 10vw;
+    padding-bottom: 10vw;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 40px;
+    & p{
+      font-size: 40px;
+      & span{
+        font-size: 60px;
+      }
+    }
+  }
+}
+
+
+
+/*===================================
+ * p-matching
+===================================*/
+
+.p-matching{
+
+}
+
+/*===================================
+ * p-voice
+===================================*/
+.p-voice{
+
+  &__inner{
+    width:  70vw;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  &__top{
+    &__title{
+      text-align: center;
+      font-size: 50px;
+    }
+  }
+
+  &__bottom{
+
+    &__item{
+      background-color: #D9D9D9;
+      box-shadow: 0 0 27px 0 rgba(0, 0, 0, 0.14);
+      position: relative;
+      &:not(:last-child){
+        margin-bottom: 1.9vw;
+      }
+      &::before{
+        border-width: 9.2708333333vw 9.2708333333vw 0 0;
+        border-style: solid;
+        border-color: #38B6FF transparent transparent transparent;
+        content: "";
+        display: block;
+        height: 0;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 0;
+      }
+    }
+
+    &__head{
+    position: absolute;
+    z-index: 2;
+    left: 0.8333333333vw;
+    top: 0.5208333333vw;
+        h5 img {
+          height: 2.0833333333vw;
+        }
+    }
+  }
+}
